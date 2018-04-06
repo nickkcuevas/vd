@@ -7,10 +7,7 @@
 // Pre: el vector fue creado
 // Post: se eliminaron todos los elementos del vector
 void vector_destruir(vector_t* vector){
-    for (int i=0; i < vector->tam; i++){
-        int* valor = &vector->datos[i];
-        free(valor);
-    }
+    free(vector->datos);
     free(vector);
     return;
 }
