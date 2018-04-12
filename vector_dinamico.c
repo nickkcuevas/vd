@@ -17,7 +17,7 @@ void vector_destruir(vector_t* vector){
 // Post: se almacenó en valor el dato en la posición pos. Devuelve false si la
 // posición es inválida (fuera del rango del vector, que va de 0 a tamaño-1)
 bool vector_obtener(vector_t* vector, size_t pos, int* valor){
-    if (((int)vector->tam - 1) < (int)pos) return false;
+    if (vector->tam < pos || vector->tam == pos) return false;
     *valor = vector->datos[pos];
     return true;
 }
@@ -28,7 +28,7 @@ bool vector_obtener(vector_t* vector, size_t pos, int* valor){
 // es inválida (fuera del rango del vector, que va de 0 a tamaño-1) y true si
 // se guardó el valor con éxito.
 bool vector_guardar(vector_t* vector, size_t pos, int valor){
-    if (((int)vector->tam - 1) < (int)pos) return false;
+    if (vector->tam < pos || vector->tam == pos) return false;
     vector->datos[pos] = valor;
     return true; 
 }
